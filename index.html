@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="実在のニュースから、ただ危機感を煽るだけの見出しを集め、全力で煽るUIで見せるアプリ。" />
+    <meta name="theme-color" content="#d10000" />
+    <title>アオリ速報</title>
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+JP:wght@400;700;900&family=Noto+Serif+JP:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="hazard" aria-hidden="true"></div>
+    <div class="ticker" aria-hidden="true"><div class="ticker__track" id="ticker"></div></div>
+
+    <header class="head">
+      <div class="head__brand">
+        <span class="siren" aria-hidden="true"></span>
+        <h1 class="logo" data-text="アオリ速報">アオリ速報</h1>
+        <p class="tagline">読んでも何もできないニュースだけを、全力でお届けします</p>
+      </div>
+
+      <div class="panel">
+        <div class="defcon" id="defcon" aria-label="国民不安レベル">
+          <span class="defcon__label">国民不安レベル</span>
+          <ol class="defcon__scale">
+            <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li>
+          </ol>
+          <span class="defcon__word" id="defconWord">計測中…</span>
+        </div>
+        <div class="countdown">
+          <span class="countdown__label">何かの期限まで 残り</span>
+          <span class="countdown__time" id="countdown">--:--:--</span>
+          <span class="countdown__note" id="countdownNote">※何の期限かは不明です</span>
+        </div>
+        <div class="stat">
+          <span class="stat__label">あなたが読んでいない間に悪化したニュース</span>
+          <span class="stat__num" id="worsened">0</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn--panic" id="panicBtn" type="button">今すぐ不安になる</button>
+        <button class="btn btn--calm" id="calmBtn" type="button" aria-pressed="false">冷静になる</button>
+        <button class="btn btn--reload" id="reloadBtn" type="button">さらに煽られる</button>
+      </div>
+    </header>
+
+    <section class="calm-summary" id="calmSummary" hidden></section>
+
+    <main class="feed" id="feed" aria-live="polite">
+      <p class="loading">最新の不安を取り寄せています…</p>
+    </main>
+
+    <footer class="foot">
+      <p>
+        見出しは <a href="https://news.google.com/?hl=ja&gl=JP&ceid=JP:ja" target="_blank" rel="noopener">Google ニュース</a>
+        のRSSから取得した実在のものです。煽っているのはこのアプリの見た目だけで、記事そのものの評価ではありません。
+      </p>
+      <p>煽り度＝見出しの不安語の点数 −「対策・相談・支援」など読者にできることの点数。できることが一つも書かれていない見出しだけを載せています。</p>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

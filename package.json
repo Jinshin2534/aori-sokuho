@@ -1,0 +1,16 @@
+{
+  "name": "aori-sokuho",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 5800 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --port 5800",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4"
+  }
+}
